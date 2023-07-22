@@ -186,3 +186,31 @@ footer nav ul {
 	margin: 2em
 }
 
+/* filtres style section */
+.filtre-bloc{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap:wrap ;
+	gap: 5%;
+}
+.filtre{
+	font-family: 'Syne';
+	font-size: 15px;
+	color: #1D6154;
+	
+}
+
+button{
+	cursor: pointer;
+	border: 1px  solid #1D6154;
+	border-radius: 20px;
+	padding: 10px;
+	font-family: 'Syne';
+	background-color: white;
+}
+
+button:hover{
+	background-color: #1D6154;
+	color: aliceblue;
+}
