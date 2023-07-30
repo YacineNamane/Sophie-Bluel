@@ -20,12 +20,12 @@ const categoriesDisplay = async () => {
     ),
   ];
 
-  document.getElementById("btns").innerHTML = filters
+  document.getElementById("btns").innerHTML = categories
     .map((btn) => {
       var { name, id } = btn;
       return `
         
-         <button id="${id}" class="button"> ${name}</button>
+         <button class="button"  ${id}> ${name}</button>
       
         `;
     })
