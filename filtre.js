@@ -1,3 +1,6 @@
+import { fetchgellery } from "./api.js";
+import { galleryDisplay } from "./index.js";
+
 let categories = [];
 
 const fetchcategories = async () => {
@@ -25,11 +28,28 @@ const categoriesDisplay = async () => {
       var { name, id } = btn;
       return `
         
-         <button class="button"  ${id}> ${name}</button>
+         <button class="button option-categorie"  data-categorie='${id}'> ${name}</button>
       
         `;
     })
     .join("");
+
+  filter();
 };
 
-categoriesDisplay();
+const filter = async () => {
+  const buttonsCategorie = document.querySelectorAll(".option-categorie");
+  const gallery = await fetchgellery();
+  buttonsCategorie.forEach((button) => {
+    button.addEventListener("click", () => {
+      //récupérer les gallery
+      const idGallery = button.dataset.categorie;
+      const works = gallery.filter((item) => {
+        return item.category.id === Number.parseInt(idGallery);
+      });
+      galleryDisplay(works);
+    });
+  });
+};
+
+export { categoriesDisplay };

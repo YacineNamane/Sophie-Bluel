@@ -1,19 +1,8 @@
 import { fetchgellery } from "./api.js";
-const galleryDisplay = async () => {
-  const gallery = await fetchgellery();
+import { categoriesDisplay } from "./filtre.js";
 
-  /*Rendre les filtre fonctionnel*/
-  /*const filterFigures = (a) => {
-    const filterGallery = gallery.filter(figure);
-    function figure(value) {
-      if (value.id == a) {
-        return value.id;
-      }
-    }
-    displayFigures(filterGallery);
-  }; */
-
-  document.querySelector(".gallery").innerHTML = gallery
+const galleryDisplay = async (works) => {
+  document.querySelector(".gallery").innerHTML = works
     .map(
       (figure) => `
 <div id= "figure${figure.id}" class=".gallery "> 
@@ -26,4 +15,12 @@ const galleryDisplay = async () => {
     .join("");
 };
 
-galleryDisplay();
+const init = async () => {
+  const gallery = await fetchgellery();
+  galleryDisplay(gallery);
+  categoriesDisplay();
+};
+
+init();
+
+export { galleryDisplay };
