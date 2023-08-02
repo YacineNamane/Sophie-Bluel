@@ -1,22 +1,34 @@
-let myForm = document.getElementById("myForm");
+//evoyer le formulaire vers notre API
 
-myForm.addEventListener("submit", function (event) {
+const API_URL = "http://localhost:5678/api/users/login";
+const loginForm = document.getElementById("myForm");
+let user = {
+  email: "",
+  password: "",
+};
+
+async function attenmptLogin(user) {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
+  const data = await response.json();
+  localStorage.setItem("token", data.token);
+  window.location.href = "index.html";
+  console.log(data);
+}
+loginForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  let myInput = document.getElementById("email");
-  let myRegex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
-  if (myInput.value.trim() == "") {
-    let myError = document.getElementById("error");
-    myError.innerHTML = `Le champs e-mail est requis! `;
-  } else if (myRegex.test(myInput.value) == false) {
-    let myError = document.getElementById("error");
-    myError.innerHTML = `e-mail invalide !`;
-  }
-  let myInputpwd = document.getElementById("pwd");
-  if (myInputpwd.value.trim() == "") {
-    let myError = document.getElementById("error");
-    myError.innerHTML = `un mot de passe est requis !`;
-  } else {
-    let myError = document.getElementById("error");
-    myError.innerHTML = `connexion établie ! `;
-  }
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("pwd").value;
+  user = {
+    email: email,
+    password: password,
+  };
+  console.log(user);
+  attenmptLogin(user);
 });
