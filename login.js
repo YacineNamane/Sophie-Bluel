@@ -21,10 +21,12 @@ async function attenmptLogin(user) {
   window.location.href = "index.html";
   console.log(data);
 }
+
 loginForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("pwd").value;
+
   user = {
     email: email,
     password: password,
