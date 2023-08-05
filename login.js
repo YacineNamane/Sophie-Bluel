@@ -17,8 +17,8 @@ async function attenmptLogin(user) {
     body: JSON.stringify(user),
   });
   const data = await response.json();
-  localStorage.setItem("token", data.token);
-  window.location.href = "index.html";
+  /*localStorage.setItem("token", data.token);
+  window.location.href = "index.html";*/
   console.log(data);
 }
 

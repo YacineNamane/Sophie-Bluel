@@ -343,3 +343,84 @@ footer {
   align-items: flex-end;
   padding-top: 20%;
 }
+
+/* style modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 650px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  display: none;
+}
+.modal--open {
+  display: block;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+.modal-pannel {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  width: 100%;
+}
+.modal-header {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65%;
+  border-bottom: 1px solid #1d6154;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 20%;
+  padding-top: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.supprimerlagalerie {
+  background-color: white;
+  color: red;
+  border: none;
+}
+.supprimerlagalerie:hover {
+  background-color: white;
+  color: red;
+}
+.btn-modal {
+  background-color: black;
+  color: white;
+  border: none;
+}
+.btn-modal:hover {
+  background-color: white;
+  color: black;
+}
+.edite {
+  display: flex;
+  gap: 10px;
+}
