@@ -21,27 +21,27 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <div class="modal-pannel">
-      <button class="btn-modal" onclick="openModal()">
-        <div class="edite">
-          <i class="fa-regular fa-pen-to-square"></i>mode édition
+    <div class="mdl">
+      <div class="modal-pannel">
+        <button class="btn-modal">
+          <div class="edite" onclick="openEditBtn()">
+            <i class="fa-regular fa-pen-to-square"></i>mode édition
+          </div>
+        </button>
+        <button class="btn-modal">publier les changement</button>
+      </div>
+      <div class="overlay"></div>
+      <div class="modal">
+        <div class="modal-close" onclick="closeModal()">
+          <i class="fa-solid fa-xmark"></i>
         </div>
-      </button>
-      <button class="btn-modal">publier les changement</button>
-    </div>
-    <div class="overlay"></div>
-    <div class="modal">
-      <div class="modal-close" onclick="closeModal()">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <div class="modal-header"><h2>Galerie Photo</h2></div>
+        <div class="modal-header"><h2>Galerie Photo</h2></div>
 
-      <div class="modal-body">
-        <p>les works seront ici</p>
-      </div>
-      <div class="modal-footer">
-        <button class="ajouterunephoto">Ajouter une photo</button>
-        <button class="supprimerlagalerie">Supprimer la galerie</button>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button class="ajouterunephoto">Ajouter une photo</button>
+          <button class="supprimerlagalerie">Supprimer la galerie</button>
+        </div>
       </div>
     </div>
     <header>
@@ -51,6 +51,7 @@
           <li>projets</li>
           <li><a href="#contact">contact</a></li>
           <li><a id="log" href="login.html">login</a></li>
+          <li><a id="logout" href="index.html">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -59,6 +60,9 @@
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
+          <a id="edit-btn">
+            <i class="fa-regular fa-pen-to-square"></i>Modifier
+          </a>
         </figure>
         <article>
           <h2>Designer d'espace</h2>
@@ -80,7 +84,12 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="myprojects">
+          <h2>Mes Projets</h2>
+          <a id="edit-btn" onclick="openModal()">
+            <i class="fa-regular fa-pen-to-square"></i>Modifier
+          </a>
+        </div>
         <section>
           <div class="filtre-bloc">
             <div class="filtre">
@@ -112,8 +121,7 @@
         </ul>
       </nav>
     </footer>
-    <script src="index.js" defer type="module"></script>
-    <script src="filtre.js" defer></script>
     <script src="modal.js" defer></script>
+    <script src="index.js" defer type="module"></script>
   </body>
 </html>

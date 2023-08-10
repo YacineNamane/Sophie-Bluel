@@ -7,7 +7,6 @@ const fetchgellery = async () => {
 
 export { fetchgellery };
 
-/*
 const fetchcategories = async () => {
   const response = await fetch("http://localhost:5678/api/categories");
   const data = await response.json();
@@ -16,4 +15,3 @@ const fetchcategories = async () => {
 };
 
 export { fetchcategories };
-*/

@@ -1,19 +1,11 @@
 import { fetchgellery } from "./api.js";
 import { galleryDisplay } from "./index.js";
+import { fetchcategories } from "./api.js";
 
 let categories = [];
 
-const fetchcategories = async () => {
-  await fetch("http://localhost:5678/api/categories")
-    .then((ser) => ser.json())
-    .then((promise) => {
-      categories = promise;
-      console.log(categories);
-    });
-};
-
 const categoriesDisplay = async () => {
-  await fetchcategories();
+  const categories = await fetchcategories();
 
   const filters = [
     ...new Set(

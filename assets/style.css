@@ -333,7 +333,7 @@ main {
   justify-content: center;
   cursor: pointer;
 }
-#error {
+.error {
   font-family: "Syne";
   color: red;
 }
@@ -388,8 +388,7 @@ footer {
 }
 .modal-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   height: 65%;
   border-bottom: 1px solid #1d6154;
 }
@@ -423,4 +422,29 @@ footer {
 .edite {
   display: flex;
   gap: 10px;
+}
+
+.figure-modal {
+  display: flex;
+  flex-direction: column;
+
+  width: 16%;
+}
+/*TEST*/
+#logout {
+  display: none;
+}
+/*editebtns*/
+.myprojects {
+  display: flex;
+  justify-content: center;
+}
+#edit-btn {
+  padding-left: 57px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.fa-trash-can {
+  cursor: pointer;
 }
