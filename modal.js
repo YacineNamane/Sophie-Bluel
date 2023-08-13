@@ -41,3 +41,8 @@ function closeModal() {
 function openEditBtn() {
   document.getElementById("edit-btn").style.display = "block";
 }
+
+// formAjout
+function openAjoutBtn() {
+  document.getElementById("formAjout").style.display = "block";
+}

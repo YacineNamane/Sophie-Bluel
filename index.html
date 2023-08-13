@@ -39,7 +39,43 @@
 
         <div class="modal-body"></div>
         <div class="modal-footer">
-          <button class="ajouterunephoto">Ajouter une photo</button>
+          <button class="ajouterunephoto" onclick="openAjoutBtn()">
+            Ajouter une photo
+          </button>
+          <form id="formAjout" method="post" action="#">
+            <div class="formajoutflex">
+              <div class="ajoutheader">
+                <i class="fa-solid fa-arrow-left fa-2xl"></i>
+                <h2>Ajout photo</h2>
+              </div>
+              <div class="add-image">
+                <div>
+                  <i
+                    class="fa-regular fa-image fa-2xl"
+                    style="color: #b2c0d7"
+                  ></i>
+                </div>
+                <input type="file" name="image" accept="image/*" capture />
+              </div>
+              <div class="image-title-form">
+                <div><p>titre</p></div>
+                <div><br /><input type="text" /></div>
+              </div>
+              <div class="form-catégorie">
+                <p>
+                  <label for="catégorie">catégorie</label><br />
+                  <select name="catégorie" id="catégoriechoose">
+                    <option value="objects">objects</option>
+                    <option value="Hotels et restaurants">
+                      Hotels et restaurants
+                    </option>
+                    <option value="Appartements">Appartements</option>
+                  </select>
+                </p>
+              </div>
+              <div><input type="submit" value="Valider" /></div>
+            </div>
+          </form>
           <button class="supprimerlagalerie">Supprimer la galerie</button>
         </div>
       </div>
