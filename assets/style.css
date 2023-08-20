@@ -272,6 +272,8 @@ footer nav ul {
   gap: 5%;
 }
 .filtre {
+  display: flex;
+  gap: 5px;
   font-family: "Syne";
   font-size: 15px;
   color: #1d6154;

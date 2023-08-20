@@ -28,6 +28,13 @@ const categoriesDisplay = async () => {
 
   filter();
 };
+//button all works
+
+const allObjects = await fetchgellery();
+const btnAll = document.querySelector(".allworks");
+btnAll.addEventListener("click", function () {
+  galleryDisplay(allObjects);
+});
 
 const filter = async () => {
   const buttonsCategorie = document.querySelectorAll(".option-categorie");
@@ -45,37 +52,3 @@ const filter = async () => {
 };
 
 export { categoriesDisplay };
-
-//mes filtres
-
-/*const btnAll = document.querySelector("btn-all");
-  btnAll.addEventListener("click", function () {
-    generateWorks(works);
-  });
-
-  const btnObjects = document.querySelector(".btn-objects");
-  btnObjects.addEventListener("click", function () {
-    const filterObjects = gallery.filter(
-      (work) => work.categorie.name === "object"
-    );
-    generateWorks(filterObjects);
-  });
-
-  const btnAppartments = document.querySelector(".btn-Appartments");
-  btnAppartments.addEventListener("click", function () {
-    const filterAppartments = gallery.filter(
-      (work) => work.categorie.name === "Appartements"
-    );
-    generateWorks(filterAppartments);
-  });
-
-  const btnHotels = document.querySelector(".btn-Hotels");
-  btnHotels.addEventListener("click", function () {
-    const filterHotels = gallery.filter(
-      (work) => work.categorie.name === "Hotels"
-    );
-    generateWorks(filterHotels);
-  });
-  galleryDisplay(works);
-};
-*/
