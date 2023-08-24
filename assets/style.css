@@ -501,18 +501,52 @@ footer {
   width: 90%;
 }
 #catégoriechoose {
+  margin-top: 9px;
   height: 45px;
-  width: 90%;
+  width: 100%;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #formAjout input {
   height: 45px;
-
   border: none;
+}
+#formAjout input[type="text"] {
+  width: 100%;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+#formAjout input[type="file"] {
+}
+#hide {
+  position: absolute;
+  top: 1;
+  height: 10%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.AjoutImageLabel {
+  position: absolute;
+  top: 1;
+  height: 7%;
+  width: 23%;
+  font-size: 20px;
+  background-color: #b2c0d7;
+  color: #5555a9;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #formAjout button {
   width: 150px;
   height: 150px;
+}
+.fa-image {
+  padding-left: 22px;
+  font-size: 85px;
 }
