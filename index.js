@@ -5,8 +5,8 @@ const galleryDisplay = async (works) => {
   document.querySelector(".gallery ").innerHTML = works
     .map(
       (figure) => `
-    <div id= "figure${figure.id}" class=".gallery "data-id="${figure.id}"> 
-    <img class= ".gallery img " src="${figure.imageUrl}" alt=" image gallery " alt ="imagie figure ${figure.name}"/>
+    <div id="figure${figure.id}" data-id="${figure.id}"> 
+    <img class="gallery img" src="${figure.imageUrl}" alt=" image gallery " alt ="imagie figure ${figure.name}"/>
     <figcaption >${figure.title}</figcaption>
     </div>
     `
@@ -72,12 +72,10 @@ const init = async () => {
       })
         .then((response) => {
           if (response.ok) {
-            const currentWork = document.getElementById(`work-modal${id}`);
-
             const figurePage = document.getElementById(`figure${id}`);
 
             deleteWorkOnModal(figure);
-            deleteWorkPage(figure);
+            deleteWorkPage(figurePage);
 
             // deleteWorkPage(figurePage)
 
@@ -106,33 +104,37 @@ const init = async () => {
 
   // ADD new work
   // load image > modal.js
+
   const formAjout = document.getElementById("formAjout");
   formAjout.addEventListener("submit", async function (event) {
     event.preventDefault();
+
     const image = document.getElementById("ajoutImage").files[0];
     console.log(image);
     console.log(typeof image);
-    const title = document.querySelector(".image-title-form").value;
-    const category = parseInt(document.querySelector(".catégorie"));
+    const title = document.querySelector("input[name=titre]").value;
+    const categorySelect = document.querySelector(
+      "select[name=catégorie]"
+    ).value;
+    const category = parseInt(categorySelect);
     let formData = new FormData();
     formData.append("image", image);
     formData.append("title", title);
     formData.append("category", category);
     console.log(formData);
-    let response = await fetch(`http://localhost:5678/api/works`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${data.token}`,
-      },
-      body: formData,
-    })
-      .then((response) => {
-        let data = response.json();
-        alert("project sent !");
-      })
-      .catch((error) => {
-        alert(error);
+    try {
+      const dataT = JSON.parse(connectedData);
+      const response = await fetch(`http://localhost:5678/api/works`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${dataT.token}`,
+        },
+        body: formData,
       });
+      const data = response.json();
+    } catch (error) {
+      console.log(error);
+    }
   });
 };
 

@@ -1,32 +1,10 @@
-//evoyer le formulaire vers notre API
+import { login } from "./api.js";
 
-const API_URL = "http://localhost:5678/api/users/login";
 const loginForm = document.getElementById("myForm");
 let user = {
   email: "",
   password: "",
 };
-
-async function attenmptLogin(user) {
-  try {
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-    const data = await response.json();
-    if (response.ok) {
-      return data.token;
-    }
-    /*localStorage.setItem("token", data.token);
-  window.location.href = "index.html";*/
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 loginForm.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -38,36 +16,12 @@ loginForm.addEventListener("submit", async function (event) {
     password: password,
   };
   console.log(user);
-  const token = await attenmptLogin(user);
-  if (token) {
-    localStorage.setItem(
-      "sophie_buel_data",
-      JSON.stringify({ token, connected: true })
-    );
+  const loginResponse = await login(user);
+  if (loginResponse.connected) {
+    localStorage.setItem("sophie_buel_data", JSON.stringify(loginResponse));
     window.location.href = "index.html";
   } else {
     //traitement du message d'erreur
     document.querySelector(".error").innerHTML = `Identifiants incorrects`;
   }
 });
-
-/*//Gestion logout
-function logout() {
-  const log = document.getElementById("log");
-  console.log(log);
-
-  log.innerHTML = `logout`;
-
-  log.addEventListener("click", function () {
-    localStorage.clear();
-  });
-}
-
-//edite mode config
-
-function displayEditMode() {
-  const PannelModal = document.querySelector("modal-pannel");
-  console.log(PannelModal);
-  document.querySelector("modal-pannel").Style.display = "block";
-}
-*/

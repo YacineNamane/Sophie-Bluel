@@ -9,7 +9,7 @@ const galleryDisplay = async (works) => {
   document.querySelector(".modal-body").innerHTML = works
     .map(
       (figure) => `
-    <div class="figure-modal" id= "figure${figure.id}" data-id="${figure.id}"> 
+    <div class="figure-modal" id= "figure-modal${figure.id}" data-id="${figure.id}"> 
     <img src="${figure.imageUrl}"  alt=" image gallery " alt ="imagie figure ${figure.name}" />
     <div ><i class="fa-solid fa-trash-can"></i></div>
     <figcaption >${figure.title}</figcaption>

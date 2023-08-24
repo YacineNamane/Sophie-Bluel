@@ -6,14 +6,9 @@ let categories = [];
 
 const categoriesDisplay = async () => {
   const categories = await fetchcategories();
+  categories.unshift({ id: 0, name: "Tous" });
 
-  const filters = [
-    ...new Set(
-      categories.map((btn) => {
-        return btn;
-      })
-    ),
-  ];
+  console.log(categories);
 
   document.getElementById("btns").innerHTML = categories
     .map((btn) => {
@@ -28,13 +23,6 @@ const categoriesDisplay = async () => {
 
   filter();
 };
-//button all works
-
-const allObjects = await fetchgellery();
-const btnAll = document.querySelector(".allworks");
-btnAll.addEventListener("click", function () {
-  galleryDisplay(allObjects);
-});
 
 const filter = async () => {
   const buttonsCategorie = document.querySelectorAll(".option-categorie");
@@ -42,9 +30,10 @@ const filter = async () => {
   buttonsCategorie.forEach((button) => {
     button.addEventListener("click", () => {
       //récupérer les gallery
-      const idGallery = button.dataset.categorie;
+      const categorieIdString = button.dataset.categorie;
+      const categorieId = Number.parseInt(categorieIdString);
       const works = gallery.filter((item) => {
-        return item.category.id === Number.parseInt(idGallery);
+        return categorieId === 0 ? true : item.category.id === categorieId;
       });
       galleryDisplay(works);
     });
