@@ -391,6 +391,7 @@ footer {
 .modal-body {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   height: 65%;
   border-bottom: 1px solid #1d6154;
 }
@@ -446,9 +447,17 @@ footer {
   padding-top: 10px;
   cursor: pointer;
 }
+#edit-btn-deux {
+  padding-top: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
 
 .fa-trash-can {
   cursor: pointer;
+  position: relative;
+  bottom: 119px;
+  left: 78px;
 }
 
 /* formAjout */
@@ -549,4 +558,7 @@ footer {
 .fa-image {
   padding-left: 22px;
   font-size: 85px;
+}
+.hide {
+  display: none;
 }

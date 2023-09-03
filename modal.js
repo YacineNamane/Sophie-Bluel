@@ -22,35 +22,54 @@ const galleryDisplay = async (works) => {
 const init = async () => {
   const gallery = await fetchgallery();
   galleryDisplay(gallery);
+  const inputFile = document.getElementById("ajoutImage");
+  inputFile.addEventListener("change", (event) => loadFile(event));
 };
 
 init();
 
 // Open close modal
 
-function openModal() {
+const openModal = document.getElementById("edit-btn-deux");
+openModal.addEventListener("click", () => {
   document.querySelector(".overlay").style.display = "block";
   document.querySelector(".modal").classList.add("modal--open");
-}
+});
 
-function closeModal() {
-  document.querySelector(".overlay").style.display = "none";
-  document.querySelector(".modal").classList.remove("modal--open");
-}
+document.querySelectorAll(".fa-xmark").forEach(function (item) {
+  item.addEventListener("click", function () {
+    document.querySelector(".overlay").style.display = "none";
+    document.querySelector(".modal").classList.remove("modal--open");
+  });
+});
 
-function openEditBtn() {
+//edit-btn show
+const displayEditBtn = document.querySelector(".edite");
+displayEditBtn.addEventListener("click", () => {
   document.getElementById("edit-btn").style.display = "block";
-}
+  document.getElementById("edit-btn-deux").style.display = "block";
+});
 
-// formAjout
-function openAjoutBtn() {
-  document.getElementById("formAjout").style.display = "block";
-}
+//open form ajout
+const openAjoutBtn = document.querySelector(".ajouterunephoto");
+openAjoutBtn.addEventListener(
+  "click",
+  () => (document.getElementById("formAjout").style.display = "block")
+);
 
 //delete galerie modal
-function deleteModal() {
-  document.querySelector(".modal-body").style.display = "none";
-}
+const deleteGaleryModal = document.querySelector(".supprimerlagalerie");
+deleteGaleryModal.addEventListener(
+  "click",
+  () => (document.querySelector(".modal-body").style.display = "none")
+);
+//submit changes
+const submitChanges = document.getElementById("submitChanges");
+submitChanges.addEventListener("click", () => {
+  (document.getElementById("edit-btn").style.display = "none")(
+    (document.getElementById("edit-btn-deux").style.display = "none")
+  );
+});
 
 // load image
 function loadFile(event) {
@@ -64,6 +83,6 @@ function loadFile(event) {
   if (file) {
     reader.readAsDataURL(file);
   }
-  document.getElementById("hide").style.display = "none";
-  document.getElementById("hide").style.display = "submit";
+  document.querySelector(".AjoutImageLabel").style.display = "none";
+  document.querySelector(".fa-image").style.display = "none";
 }

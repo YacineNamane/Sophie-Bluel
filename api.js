@@ -39,4 +39,14 @@ const login = async (user) => {
   }
 };
 
+/*const fetchAddWork = async () => {
+  const response = await fetch(`${BASE_URL}/api/works`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${dataT.token}`,
+    },
+    body: formData,
+  });
+};*/
+
 export { fetchcategories, fetchgellery, login };

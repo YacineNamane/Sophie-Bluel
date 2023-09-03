@@ -47,6 +47,7 @@ const init = async () => {
   if (connectedData == null) {
     document.querySelector(".mdl").style.display = "none ";
     document.getElementById("edit-btn").style.display = "none";
+    document.getElementById("edit-btn-deux").style.display = "none";
     document.getElementById("logout").style.display = "none";
     document.getElementById("log").style.display = "block";
   }
@@ -131,9 +132,23 @@ const init = async () => {
         },
         body: formData,
       });
+
       const data = response.json();
     } catch (error) {
       console.log(error);
+    }
+  });
+  // traitement d'érreur
+  let myFormAjout = document.getElementById("formAjout");
+  myFormAjout.addEventListener("submit", function (e) {
+    let myInputAjout = document.getElementById("newtitre");
+    if (myInputAjout.value.trim() == "") {
+      let myError = document.querySelector(".error--ajout");
+      myError.innerHTML = "Le champs titre est requis !";
+      myError.style.color = "red";
+      e.preventDefault();
+    } else {
+      window.location.reload();
     }
   });
 };
