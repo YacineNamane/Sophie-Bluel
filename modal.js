@@ -42,6 +42,13 @@ document.querySelectorAll(".fa-xmark").forEach(function (item) {
     document.querySelector(".modal").classList.remove("modal--open");
   });
 });
+//arrow back not finished
+const arrowBAck = document.querySelector(".fa-arrow-left");
+arrowBAck.addEventListener("click", () => {
+  document.querySelector(".formajoutflex").style.display = "none";
+  document.querySelector(".overlay").style.display = "block";
+  document.querySelector(".modal").classList.add("modal--open");
+});
 
 //edit-btn show
 const displayEditBtn = document.querySelector(".edite");

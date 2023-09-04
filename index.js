@@ -1,4 +1,4 @@
-import { fetchgellery } from "./api.js";
+import { fetchgellery, fetchAddWork } from "./api.js";
 import { categoriesDisplay } from "./filtre.js";
 
 const galleryDisplay = async (works) => {
@@ -122,21 +122,13 @@ const init = async () => {
     formData.append("image", image);
     formData.append("title", title);
     formData.append("category", category);
-    console.log(formData);
-    try {
-      const dataT = JSON.parse(connectedData);
-      const response = await fetch(`http://localhost:5678/api/works`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${dataT.token}`,
-        },
-        body: formData,
-      });
+    const data = JSON.parse(connectedData);
 
-      const data = response.json();
-    } catch (error) {
-      console.log(error);
-    }
+    console.log(formData);
+    console.log(connectedData);
+    const result = fetchAddWork(formData, data.token);
+
+    console.log(result);
   });
   // traitement d'érreur
   let myFormAjout = document.getElementById("formAjout");

@@ -23,7 +23,10 @@ const login = async (user) => {
       },
       body: JSON.stringify(user),
     });
+
     const data = await response.json();
+    console.log(data);
+
     if (response.ok) {
       return {
         connected: true,
@@ -39,14 +42,23 @@ const login = async (user) => {
   }
 };
 
-/*const fetchAddWork = async () => {
-  const response = await fetch(`${BASE_URL}/api/works`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${dataT.token}`,
-    },
-    body: formData,
-  });
-};*/
+// le paramètre formData corrspond aux données récupéré du formulaire
 
-export { fetchcategories, fetchgellery, login };
+const fetchAddWork = async (formData, token) => {
+  console.log(token);
+  try {
+    const response = await fetch(`${BASE_URL}/works`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export { fetchcategories, fetchgellery, login, fetchAddWork };

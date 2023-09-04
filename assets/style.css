@@ -452,6 +452,9 @@ footer {
   padding-left: 10px;
   cursor: pointer;
 }
+.fa-arrow-left {
+  cursor: pointer;
+}
 
 .fa-trash-can {
   cursor: pointer;

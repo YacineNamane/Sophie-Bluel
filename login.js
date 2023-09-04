@@ -17,7 +17,8 @@ loginForm.addEventListener("submit", async function (event) {
   };
   console.log(user);
   const loginResponse = await login(user);
-  if (loginResponse.connected) {
+
+  if (loginResponse && loginResponse.connected) {
     localStorage.setItem("sophie_buel_data", JSON.stringify(loginResponse));
     window.location.href = "index.html";
   } else {
