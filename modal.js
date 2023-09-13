@@ -12,7 +12,7 @@ const galleryDisplay = async (works) => {
     <div class="figure-modal" id= "figure-modal${figure.id}" data-id="${figure.id}"> 
     <img src="${figure.imageUrl}"  alt=" image gallery " alt ="imagie figure ${figure.name}" />
     <div ><i class="fa-solid fa-trash-can"></i></div>
-    <figcaption >${figure.title}</figcaption>
+    
     </div>
     `
     )
@@ -92,4 +92,5 @@ function loadFile(event) {
   }
   document.querySelector(".AjoutImageLabel").style.display = "none";
   document.querySelector(".fa-image").style.display = "none";
+  document.querySelector(".tailleimagine").style.display = "none";
 }

@@ -7,7 +7,7 @@ const galleryDisplay = async (works) => {
       (figure) => `
     <div id="figure${figure.id}" data-id="${figure.id}"> 
     <img class="gallery img" src="${figure.imageUrl}" alt=" image gallery " alt ="imagie figure ${figure.name}"/>
-    <figcaption >${figure.title}</figcaption>
+    <figcaption class = "titleimage" >${figure.title}</figcaption>
     </div>
     `
     )
@@ -138,10 +138,14 @@ const init = async () => {
       let myError = document.querySelector(".error--ajout");
       myError.innerHTML = "Le champs titre est requis !";
       myError.style.color = "red";
-      e.preventDefault();
-    } else {
-      window.location.reload();
     }
+    let myInputSelectCategory = document.getElementById("catégoriechoose");
+    if (myInputSelectCategory.value == "") {
+      let myErrorCategorys = document.querySelector(".error--category");
+      myErrorCategorys.innerHTML = "veuillez Sélectionner une catégorie !";
+      myErrorCategorys.style.color = "red";
+    }
+    e.preventDefault();
   });
 };
 

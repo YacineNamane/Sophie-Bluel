@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="add-image">
-                <div>
+                <div class="addimgspace">
                   <div>
                     <i class="fa-regular fa-image fa-2xl iconeImage"></i>
                   </div>
@@ -61,6 +61,7 @@
                     <div class="AjoutImageLabel iconeImage">
                       <label>+Ajout image</label>
                     </div>
+
                     <div id="hide">
                       <input
                         type="file"
@@ -69,11 +70,14 @@
                         maxsize="4mo"
                       />
                     </div>
+                    <div class="tailleimagine">
+                      <span>jpg. png : 4mo max</span>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="image-title-form">
-                <div><p>titre</p></div>
+                <div><p>Titre</p></div>
                 <div>
                   <br /><input type="text" name="titre" id="newtitre" />
                   <span class="error--ajout"></span>
@@ -81,13 +85,15 @@
               </div>
               <div class="form-catégorie">
                 <p>
-                  <label for="catégorie">catégorie</label><br />
+                  <label for="catégorie">Catégorie</label><br />
                   <select name="catégorie" id="catégoriechoose">
+                    <option value=""></option>
                     <option value="1">objects</option>
                     <option value="3">Hotels et restaurants</option>
                     <option value="2">Appartements</option>
                   </select>
                 </p>
+                <span class="error--category"></span>
               </div>
               <div><input type="submit" value="Valider" /></div>
             </div>
@@ -101,10 +107,16 @@
       <nav>
         <ul>
           <li>projets</li>
-          <li><a href="#contact">contact</a></li>
+          <li><a class="contacts" href="#contact">contact</a></li>
           <li><a id="log" href="login.html">login</a></li>
           <li><a id="logout" href="index.html">logout</a></li>
-          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
+          <li>
+            <img
+              class="insta"
+              src="./assets/icons/instagram.png"
+              alt="Instagram"
+            />
+          </li>
         </ul>
       </nav>
     </header>

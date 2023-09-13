@@ -391,9 +391,9 @@ footer {
 .modal-body {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   height: 65%;
-  border-bottom: 1px solid #1d6154;
 }
 .modal-footer {
   display: flex;
@@ -403,6 +403,7 @@ footer {
   padding-top: 50px;
   padding-left: 200px;
   padding-right: 200px;
+  border-top: 1px solid #1d6154;
 }
 .supprimerlagalerie {
   background-color: white;
@@ -543,11 +544,11 @@ footer {
 .AjoutImageLabel {
   position: absolute;
   top: 1;
-  height: 7%;
-  width: 23%;
+  height: 6%;
+  width: 31%;
   font-size: 20px;
-  background-color: #b2c0d7;
-  color: #5555a9;
+  background-color: #b5b5b5;
+  color: #1d54a8;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -559,9 +560,56 @@ footer {
   height: 150px;
 }
 .fa-image {
-  padding-left: 22px;
+  padding-right: 26px;
   font-size: 85px;
+  color: #b5b5b5;
+  padding-top: 18px;
 }
 .hide {
   display: none;
+}
+
+/* style updates */
+#output {
+  width: 173px;
+
+  padding-right: 10px;
+}
+
+.insta {
+  height: 20px;
+  width: 20px;
+}
+#logout {
+  text-decoration: none;
+  color: black;
+}
+#log {
+  text-decoration: none;
+  color: black;
+}
+.contacts {
+  text-decoration: none;
+  color: black;
+  padding-left: 5px;
+}
+.projects {
+  text-decoration: none;
+  color: black;
+}
+.titleimage {
+  padding-top: 6px;
+}
+.tailleimagine {
+  padding-top: 55px;
+  padding-left: 25px;
+}
+.addimgspace {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.ajouterunephoto {
+  color: white;
+  background-color: #1d6154;
 }
