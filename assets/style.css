@@ -391,7 +391,7 @@ footer {
 .modal-body {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  padding-left: 40px;
   gap: 10px;
   height: 65%;
 }
@@ -431,8 +431,8 @@ footer {
 .figure-modal {
   display: flex;
   flex-direction: column;
-
-  width: 16%;
+  height: 30%;
+  width: 18%;
 }
 /*TEST*/
 #logout {
@@ -460,7 +460,7 @@ footer {
 .fa-trash-can {
   cursor: pointer;
   position: relative;
-  bottom: 119px;
+  bottom: 118px;
   left: 78px;
 }
 
@@ -612,4 +612,8 @@ footer {
 .ajouterunephoto {
   color: white;
   background-color: #1d6154;
+}
+.scroller {
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
